@@ -1,0 +1,14 @@
+.navbar-toggler-icon {
+  border: gray solid 2px;
+}
+@media screen and (max-width: 980px) {
+  .nav-l {
+    display: none !important;
+  }
+}
+
+@media screen and (min-width: 981px) {
+  .nav-s {
+    display: none !important;
+  }
+}
