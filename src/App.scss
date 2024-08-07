@@ -1,6 +1,38 @@
-.navbar-toggler-icon {
-  border: gray solid 2px;
+.ham-i {
+  font-size: 2rem;
+  color: rgb(144, 46, 171);
 }
+
+.page-title,
+label {
+  color: rgb(144, 46, 171) !important;
+}
+textarea,
+input,
+.css-13cymwt-control {
+  border: rgba(84, 191, 248, 0.23) solid 2px !important;
+  #react-select-3-input,
+  #react-select-5-input,
+  #react-select-7-input {
+    border: none !important;
+  }
+}
+
+.custom-btn {
+  button {
+    background-color: white;
+    border: none;
+    border: rgba(84, 191, 248, 0.23) solid 2px;
+    color: rgb(84, 191, 248);
+    padding: 0.5rem 1rem;
+    border-radius: 15px;
+    transition: box-shadow 0.3s ease-in-out;
+    &:hover {
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
 @media screen and (max-width: 980px) {
   .nav-l {
     display: none !important;
