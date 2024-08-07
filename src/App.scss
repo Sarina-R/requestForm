@@ -3,19 +3,16 @@
   color: rgb(144, 46, 171);
 }
 
-.page-title,
-label {
+.page-title {
   color: rgb(144, 46, 171) !important;
 }
+#uploader__input-650706 label {
+  color: white !important;
+}
 textarea,
-input,
+#formRequestTitle.form-control,
 .css-13cymwt-control {
   border: rgba(84, 191, 248, 0.23) solid 2px !important;
-  #react-select-3-input,
-  #react-select-5-input,
-  #react-select-7-input {
-    border: none !important;
-  }
 }
 
 .custom-btn {
