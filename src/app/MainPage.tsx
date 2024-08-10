@@ -1,8 +1,10 @@
 import { Form, Container, Row, Col, Stack } from "react-bootstrap";
-import Select from "react-select";
+import Select, { SingleValue } from "react-select";
 import { Uploader } from "uploader";
 import { UploadButton } from "react-uploader";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useState, FormEvent } from "react";
+import { useNavigate } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
 
 interface Option {
   value: string;
@@ -15,7 +17,15 @@ const options: Option[] = [
   { value: "option3", label: "option3" },
 ];
 
-const SearchableSelect = () => <Select options={options} isSearchable />;
+const SearchableSelect = ({
+  value,
+  onChange,
+}: {
+  value: Option | null;
+  onChange: (option: SingleValue<Option>) => void;
+}) => (
+  <Select options={options} isSearchable value={value} onChange={onChange} />
+);
 
 const uploader = Uploader({ apiKey: "free" });
 
@@ -40,6 +50,12 @@ const MainPage = () => {
   const [details, setDetails] = useState<string>("");
   const [titleClass, setTitleClass] = useState<string>("");
   const [detailClass, setDetailClass] = useState<string>("");
+  const [team, setTeam] = useState<Option | null>(options[0]);
+  const [serviceType, setServiceType] = useState<Option | null>(options[0]);
+  const [serviceName, setServiceName] = useState<Option | null>(options[0]);
+  const [uploadedFiles, setUploadedFiles] = useState<any[]>([]);
+
+  const navigate = useNavigate();
 
   const handleTitleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
@@ -62,12 +78,39 @@ const MainPage = () => {
   };
 
   const handleFileUpload = (files: any[]) => {
-    console.log(files);
+    setUploadedFiles(files);
+  };
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (
+      !team ||
+      !serviceType ||
+      !serviceName ||
+      !title ||
+      !details ||
+      titleClass === "is-invalid" ||
+      detailClass === "is-invalid"
+    ) {
+      alert("Please complete all fields.");
+      return;
+    }
+    const formData = {
+      id: uuidv4(),
+      title,
+      details,
+      team,
+      serviceType,
+      serviceName,
+      uploadedFiles,
+    };
+    // console.log(formData);
+    navigate("/requestForm/requests", { state: { formData } });
   };
 
   return (
     <Container className="pt-5">
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <Stack gap={4}>
           <Form.Group controlId="formRequestTitle">
             <Form.Label>Request Title</Form.Label>
@@ -91,19 +134,28 @@ const MainPage = () => {
             <Col className="col-12 col-md-4 col-sm-6">
               <Form.Group controlId="formRequestSelect">
                 <Form.Label>Team</Form.Label>
-                <SearchableSelect />
+                <SearchableSelect
+                  value={team}
+                  onChange={(option) => setTeam(option as Option)}
+                />
               </Form.Group>
             </Col>
             <Col className="col-12 col-md-4 col-sm-6">
               <Form.Group controlId="formRequestSelect">
                 <Form.Label>Type of Service</Form.Label>
-                <SearchableSelect />
+                <SearchableSelect
+                  value={serviceType}
+                  onChange={(option) => setServiceType(option as Option)}
+                />
               </Form.Group>
             </Col>
             <Col className="col-12 col-md-4 col-sm-12">
               <Form.Group controlId="formRequestSelect">
                 <Form.Label>Name of Service</Form.Label>
-                <SearchableSelect />
+                <SearchableSelect
+                  value={serviceName}
+                  onChange={(option) => setServiceName(option as Option)}
+                />
               </Form.Group>
             </Col>
           </Row>

@@ -11,7 +11,7 @@ function Header() {
           className="bg-body-tertiary mb-3 nav-l"
         >
           <Container fluid>
-            <Navbar.Brand className="page-title fw-bold" href="#">
+            <Navbar.Brand className="page-title fw-bold" href="/">
               Request Page
             </Navbar.Brand>
 
@@ -40,7 +40,7 @@ function Header() {
         </Navbar>
       ))}
       <Navbar collapseOnSelect expand="lg" className="nav-s">
-        <Navbar.Brand href="#" className="p-4 page-title fw-bold">
+        <Navbar.Brand href="/" className="p-4 page-title fw-bold">
           Request Page
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav">

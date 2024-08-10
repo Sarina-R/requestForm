@@ -11,26 +11,13 @@ import LoginForm from "./loginForm/LoginForm.tsx";
 import RequestPage from "./requestPage/RequestPage.tsx";
 
 const Root = () => {
-  const [req, setReq] = useState<Request[]>([]);
-
-  // const addReq = (req: Request) => {
-  //   setReq([...req, req])
-  // }
-
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/requestForm/" element={<App />} />
         <Route path="/requestForm/login" element={<LoginForm />} />
-        <Route
-          path="/requestForm/requests"
-          element={
-            <RequestPage
-            // req={req} addReq={addReq}
-            />
-          }
-        />
+        <Route path="/requestForm/requests" element={<RequestPage />} />
       </Routes>
     </BrowserRouter>
   );

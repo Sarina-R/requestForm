@@ -2,9 +2,15 @@
   font-size: 2rem;
   color: rgb(144, 46, 171);
 }
-
+img {
+  max-width: 30rem !important;
+}
 .page-title {
   color: rgb(144, 46, 171) !important;
+}
+.id {
+  font-size: 19px;
+  color: gray;
 }
 #uploader__input-650706 label {
   color: white !important;
