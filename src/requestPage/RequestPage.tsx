@@ -1,7 +1,7 @@
 import { Container, Row } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
-import Header from "../app/Header";
-import Sidebar from "../app/Sidebar";
+import Header from "../Header";
+import Sidebar from "../Sidebar";
 import { useEffect, useState } from "react";
 
 interface FormData {
