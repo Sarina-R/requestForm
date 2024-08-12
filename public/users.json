@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "userName": "Dave",
+    "pwd": "!Dave123",
+    "email": "dave@email.com",
+    "name": "Dave",
+    "lastName": "Dave lastName"
+  },
+  {
+    "id": 2,
+    "userName": "jack",
+    "pwd": "!jack123",
+    "email": "jack@email.com",
+    "name": "jack",
+    "lastName": "jack lastName"
+  }
+]
