@@ -1,7 +1,7 @@
 import React, { useState, useEffect, createContext, ReactNode } from "react";
 import axios from "axios";
 
-interface User {
+export interface user {
   id: number;
   userName: string;
   pwd: string;
@@ -11,8 +11,8 @@ interface User {
 }
 
 interface Users {
-  users: User[];
-  setUsers: React.Dispatch<React.SetStateAction<User[]>>;
+  users: user[];
+  setUsers: React.Dispatch<React.SetStateAction<user[]>>;
 }
 
 interface UserProviderProps {
@@ -22,7 +22,7 @@ interface UserProviderProps {
 export const UserContext = createContext<Users | undefined>(undefined);
 
 const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
-  const [users, setUsers] = useState<User[]>([]);
+  const [users, setUsers] = useState<user[]>([]);
 
   useEffect(() => {
     axios

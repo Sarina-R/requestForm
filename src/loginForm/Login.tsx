@@ -14,6 +14,12 @@ interface LoginProps {
 }
 
 const Login: React.FC<LoginProps> = ({ handleSubmit, setPwd, setUserName }) => {
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "Enter") {
+      handleSubmit();
+    }
+  };
+
   return (
     <MDBContainer fluid>
       <MDBRow>
@@ -33,6 +39,7 @@ const Login: React.FC<LoginProps> = ({ handleSubmit, setPwd, setUserName }) => {
               type="text"
               size="lg"
               onChange={(e) => setUserName(e.target.value)}
+              onKeyDown={handleKeyDown}
             />
             <MDBInput
               wrapperClass="mb-4 mx-5 w-100"
@@ -41,6 +48,7 @@ const Login: React.FC<LoginProps> = ({ handleSubmit, setPwd, setUserName }) => {
               type="password"
               size="lg"
               onChange={(e) => setPwd(e.target.value)}
+              onKeyDown={handleKeyDown}
             />
 
             <MDBBtn
