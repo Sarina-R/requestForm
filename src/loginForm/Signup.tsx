@@ -1,5 +1,4 @@
-import React, { useState, useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
   MDBBtn,
   MDBContainer,
@@ -7,48 +6,22 @@ import {
   MDBCol,
   MDBInput,
 } from "mdb-react-ui-kit";
-import axios from "axios";
-import { UserContext, user } from "../context/UserProvider";
 
-const Signup: React.FC = () => {
-  const { users, setUsers } = useContext(UserContext) || {
-    users: [],
-    setUsers: () => {},
-  };
-  const [email, setEmail] = useState("");
-  const [userName, setUserName] = useState("");
-  const [pwd, setPwd] = useState("");
-  const [confirmPwd, setConfirmPwd] = useState("");
-  const navigate = useNavigate();
+interface SigninProps {
+  handleSubmit: (e: React.FormEvent) => Promise<void>;
+  setUserName: React.Dispatch<React.SetStateAction<string>>;
+  setPwd: React.Dispatch<React.SetStateAction<string>>;
+  setEmail: React.Dispatch<React.SetStateAction<string>>;
+  setConfirmPwd: React.Dispatch<React.SetStateAction<string>>;
+}
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    if (pwd !== confirmPwd) {
-      alert("Passwords do not match");
-      return;
-    }
-
-    const newUser: user = {
-      id: users.length + 1,
-      userName,
-      pwd,
-      email,
-      name: "",
-      lastName: "",
-    };
-
-    try {
-      // Add the new user to the state
-      setUsers([...users, newUser]);
-      // Optionally, send the new user data to the server
-      await axios.post("/users.json", newUser);
-      navigate(`/requestForm/user/${newUser.id}`);
-    } catch (error) {
-      console.error("Error creating user:", error);
-    }
-  };
-
+const Signup: React.FC<SigninProps> = ({
+  setEmail,
+  setUserName,
+  setPwd,
+  setConfirmPwd,
+  handleSubmit,
+}) => {
   return (
     <MDBContainer fluid>
       <MDBRow>
