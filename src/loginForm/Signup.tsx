@@ -194,7 +194,7 @@ const Signup: React.FC<SigninProps> = ({
             <p className="ms-5">
               Already have an account?
               <Link to="/requestForm/login">
-                <a className="link-info d-block">Sign up</a>
+                <a className="link-info d-block">Login</a>
               </Link>
             </p>
           </div>
