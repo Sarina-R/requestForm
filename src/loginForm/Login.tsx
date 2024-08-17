@@ -60,10 +60,8 @@ const Login: React.FC<LoginProps> = ({ handleSubmit, setPwd, setUserName }) => {
             >
               Login
             </MDBBtn>
-            <p className="small mb-5 pb-lg-3 ms-5">
-              <a className="text-muted" href="#!">
-                Forgot password?
-              </a>
+            <p className="small text-muted mb-5 pb-lg-3 ms-5">
+              Username: Dave Pwd: !Dave123
             </p>
             <p className="ms-5">
               Don't have an account?

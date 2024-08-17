@@ -26,7 +26,7 @@ const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
 
   useEffect(() => {
     axios
-      .get("/users.json")
+      .get("users.json")
       .then((response) => {
         console.log("Fetched users:", response.data); // checking
         setUsers(response.data);
