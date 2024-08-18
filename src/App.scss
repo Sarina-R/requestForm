@@ -21,6 +21,21 @@ textarea,
   border: rgba(84, 191, 248, 0.23) solid 2px !important;
 }
 
+.header {
+  a {
+    color: gray !important;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.text-gray {
+  color: gray !important;
+}
+
+.link {
+  padding-bottom: 0.7rem !important;
+}
+
 .custom-btn {
   button {
     background-color: white;

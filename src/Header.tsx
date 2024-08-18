@@ -1,5 +1,6 @@
 import { Container, Nav, Navbar, Offcanvas } from "react-bootstrap";
 import { FaHamburger } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
@@ -8,12 +9,14 @@ function Header() {
         <Navbar
           key={index}
           expand={expand}
-          className="bg-body-tertiary mb-3 nav-l"
+          className="bg-body-tertiary mb-3 nav-l "
         >
           <Container fluid>
-            <Navbar.Brand className="page-title fw-bold" href="/">
-              Request Page
-            </Navbar.Brand>
+            <Link to="/requestForm/">
+              <Navbar.Brand className="page-title fw-bold">
+                Request Page
+              </Navbar.Brand>
+            </Link>
 
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`}>
               <FaHamburger className="ham-i" />
@@ -29,28 +32,48 @@ function Header() {
 
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
-                  <Nav.Link href="/requestForm/login">Profile</Nav.Link>
-                  <Nav.Link href="/requestForm/requests">
-                    Request Management
-                  </Nav.Link>
+                  <Link to="/requestForm/login">
+                    <div className="link">
+                      <a className="text-gray">Profile</a>
+                    </div>
+                  </Link>
+                  <Link to="/requestForm/requests">
+                    <div className="link">
+                      <a className="text-gray">Request Management</a>
+                    </div>
+                  </Link>
+                  {/* <Link to="/requestForm/semat/login">
+                    <div className="link">
+                      <a className="text-gray">Semat Login</a>
+                    </div>
+                  </Link> */}
                 </Nav>
               </Offcanvas.Body>
             </Navbar.Offcanvas>
           </Container>
         </Navbar>
       ))}
-      <Navbar collapseOnSelect expand="lg" className="nav-s">
-        <Navbar.Brand href="/" className="p-4 page-title fw-bold">
-          Request Page
-        </Navbar.Brand>
+
+      <Navbar collapseOnSelect expand="lg" className="nav-s header">
+        <Link to="/requestForm">
+          <Navbar.Brand className="p-4 page-title fw-bold">
+            Request Page
+          </Navbar.Brand>
+        </Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav">
           <FaHamburger className="ham-i" />
         </Navbar.Toggle>
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto p-4">
-            <Nav.Link href="/requestForm/login">Profile</Nav.Link>
-
-            <Nav.Link href="/requestForm/requests">Request Management</Nav.Link>
+            <Link to="/requestForm/login">
+              <a>Profile</a>
+            </Link>
+            <Link to="/requestForm/requests">
+              <a>Request Management</a>
+            </Link>
+            {/* <Link to="/requestForm/semat/login">
+              <a>Semat Login</a>
+            </Link> */}
           </Nav>
         </Navbar.Collapse>
       </Navbar>
