@@ -1,8 +1,21 @@
+// import { useState, useEffect } from "react";
 import { Container, Nav, Navbar, Offcanvas } from "react-bootstrap";
 import { FaHamburger } from "react-icons/fa";
 import { Link } from "react-router-dom";
+// import Logout from "./Semat/Logout";
+// import Cookies from "universal-cookie";
+
+// const cookies = new Cookies();
 
 function Header() {
+  // const [modal, setModal] = useState<boolean>(false);
+  // const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+
+  // useEffect(() => {
+  //   const token = cookies.get("token");
+  //   setIsLoggedIn(!!token); // Set isLoggedIn to true if token exists
+  // }, []);
+
   return (
     <>
       {[false].map((expand, index) => (
@@ -42,11 +55,19 @@ function Header() {
                       <a className="text-gray">Request Management</a>
                     </div>
                   </Link>
-                  {/* <Link to="/requestForm/semat/login">
+
+                  {/* {modal && <Logout modal={modal} setModal={setModal} />}
+                  {isLoggedIn ? (
                     <div className="link">
-                      <a className="text-gray">Semat Login</a>
+                      <button className="btn" onClick={() => setModal(true)}>
+                        Logout
+                      </button>
                     </div>
-                  </Link> */}
+                  ) : (
+                    <Link to="/requestForm/semat/login">
+                      <button className="btn">Login</button>
+                    </Link>
+                  )} */}
                 </Nav>
               </Offcanvas.Body>
             </Navbar.Offcanvas>
@@ -71,9 +92,19 @@ function Header() {
             <Link to="/requestForm/requests">
               <a>Request Management</a>
             </Link>
-            {/* <Link to="/requestForm/semat/login">
-              <a>Semat Login</a>
-            </Link> */}
+
+            {/* {modal && <Logout modal={modal} setModal={setModal} />}
+            {isLoggedIn ? (
+              <div className="link">
+                <button className="btn" onClick={() => setModal(true)}>
+                  Logout
+                </button>
+              </div>
+            ) : (
+              <Link to="/requestForm/semat/login">
+                <button className="btn">Login</button>
+              </Link>
+            )} */}
           </Nav>
         </Navbar.Collapse>
       </Navbar>

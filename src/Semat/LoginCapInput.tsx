@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { MDBInput } from "mdb-react-ui-kit";
-import axios from "axios";
+import axiosInstance from "./axiosInstance";
 import { useNavigate } from "react-router-dom";
+import Cookies from "universal-cookie";
 
-const urlGet = "https://semat.band56.ir/api/v1/default/generate-captcha";
-const urlPost = "https://semat.band56.ir/api/v1/Accounts/one-factor-login";
+const cookies = new Cookies();
+const urlGet = "/default/generate-captcha";
+const urlPost = "/Accounts/one-factor-login";
 
 export interface CaptchaData {
   captchaId: string;
@@ -19,7 +21,7 @@ const LoginCapInput = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios
+    axiosInstance
       .get(urlGet)
       .then((response) => {
         console.log("Fetched data:", response.data.content); // checking
@@ -37,13 +39,29 @@ const LoginCapInput = () => {
         captchaId: captchaData.captchaId,
         captchaCode: captchaData.captchaCode,
       };
-      axios
+      axiosInstance
         .post(urlPost, postData)
         .then((response) => {
           console.log("Post response:", response.data);
-          navigate("/requestForm/semat/confirmation", {
-            state: { userName, password },
-          });
+          if (response.data && response.data.content) {
+            const token = response.data.content.token;
+            if (token) {
+              cookies.set("token", token, { path: "/" }); // store jwt in cookie
+              axiosInstance.defaults.headers.common[
+                "Authorization"
+              ] = `Bearer ${token}`; // set token in header
+              navigate("/requestForm/semat/confirmation", {
+                state: { userName, password },
+              });
+            } else {
+              console.error("Token not found in response content");
+            }
+          } else {
+            console.log("Token not provided in one-factor-login response");
+            navigate("/requestForm/semat/confirmation", {
+              state: { userName, password },
+            });
+          }
         })
         .catch((error) => console.error("Error posting data:", error));
     } else {
@@ -82,10 +100,10 @@ const LoginCapInput = () => {
             onChange={(e) => setCap(e.target.value)}
           />
 
-          <div className=" btn mb-4  " color="info">
+          <div className="btn mb-4" color="info">
             {captchaData ? captchaData.captchaCode : ""}
           </div>
-          <button className="btn  bg-primary text-light" onClick={handleClick}>
+          <button className="btn bg-primary text-light" onClick={handleClick}>
             {captchaData ? "Submit" : "Loading..."}
           </button>
         </div>
