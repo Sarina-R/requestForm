@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import LoginForm from "./loginForm/LoginForm";
 import RequestPage from "./requestPage/RequestPage";
 import SignupForm from "./loginForm/SignupForm";
@@ -16,7 +16,7 @@ import UserProvider from "./context/UserProvider";
 
 const Root: React.FC = () => {
   return (
-    <BrowserRouter>
+    <Router>
       <UserProvider>
         <Routes>
           <Route path="/" element={<App />} />
@@ -32,7 +32,7 @@ const Root: React.FC = () => {
           /> */}
         </Routes>
       </UserProvider>
-    </BrowserRouter>
+    </Router>
   );
 };
 
