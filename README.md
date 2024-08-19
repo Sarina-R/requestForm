@@ -1,5 +1,17 @@
 https://sarina-r.github.io/requestForm/
 
+This site consists of five pages:
+
+Main Page: Here, you can fill out the request form. Once submitted, you are automatically redirected to the Request Management page, where you can view your requests.
+
+Request Management Page: This page allows you to manage and view the status of your submitted requests.
+
+Signup Page: You can create a new account in real-time.
+
+Login Page: After signing up, you can log in with your credentials. Alternatively, you can use a pre-existing username and password.
+
+User Page: This page displays the user’s data and information once they are logged in.
+
 ### package that need to be installed:
 
 npm i @fortawesome/fontawesome-free
