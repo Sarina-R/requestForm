@@ -26,11 +26,16 @@ const TableComponent = () => {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [totalItems, setTotalItems] = useState<number>(0);
   const [searchValue, setSearchValue] = useState<string>("");
+  const [paramInstitutionStatus, setParamInstitutionStatus] =
+    useState<number>(1);
+  const [fkParentOrganization, setFkParentOrganization] = useState<number>(0);
+  const [paramOrgValidationStatus, setParamOrgValidationStatus] =
+    useState<number>(0);
 
   const fetchData = (page: number, search: string) => {
     axiosInstance
       .get(
-        `${urlTable}?SearchString=${search}&searchType=${1}&ParamInstitutionStatus=${1}&fkParentOrganization=${0}&ParamOrgValidationStatus=${0}&paging=${page}&page=${62}`
+        `${urlTable}?SearchString=${search}&searchType=${1}&ParamInstitutionStatus=${paramInstitutionStatus}&fkParentOrganization=${fkParentOrganization}&ParamOrgValidationStatus=${paramOrgValidationStatus}&paging=${page}&page=${62}`
       )
       .then((response) => {
         console.log("Fetched data:", response.data.content);
@@ -57,6 +62,22 @@ const TableComponent = () => {
     setCurrentPage(1);
   };
 
+  const handleTeamChange = (value: number) => {
+    setParamOrgValidationStatus(value);
+  };
+
+  const handleServiceTypeChange = (value: number) => {
+    setParamInstitutionStatus(value);
+  };
+
+  const handleParentOrgChange = (value: number) => {
+    setFkParentOrganization(value);
+  };
+
+  const handleApplyFilters = () => {
+    fetchData(currentPage, searchValue);
+  };
+
   const totalPages = Math.ceil(totalItems / 20); // Assuming 20 items per page for pagination calculation
 
   return (
@@ -69,7 +90,12 @@ const TableComponent = () => {
           handleSearch={handleSearch}
         />
 
-        <Selects />
+        <Selects
+          onTeamChange={handleTeamChange}
+          onServiceTypeChange={handleServiceTypeChange}
+          onParentOrgChange={handleParentOrgChange}
+          onApplyFilters={handleApplyFilters}
+        />
       </Row>
 
       <div className="table d-flex justify-content-center align-items-center mt-5">
