@@ -36,7 +36,7 @@ const ConfirmCode = () => {
           axiosInstance.defaults.headers.common[
             "Authorization"
           ] = `Bearer ${token}`; // set token in header
-          navigate("/requestForm/");
+          navigate("/requestForm/semat/table");
         } else {
           setErrorMessage("OTP code does not match. Please try again.");
         }

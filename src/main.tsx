@@ -11,8 +11,9 @@ import RequestPage from "./requestPage/RequestPage";
 import SignupForm from "./loginForm/SignupForm";
 import User from "./loginForm/User";
 import UserProvider from "./context/UserProvider";
-// import LoginCapInput from "./Semat/LoginCapInput";
-// import ConfirmCode from "./Semat/ConfirmCode";
+import LoginCapInput from "./Semat/LoginCapInput";
+import ConfirmCode from "./Semat/ConfirmCode";
+import TableComponent from "./Semat/table/Table";
 
 const Root: React.FC = () => {
   return (
@@ -25,11 +26,12 @@ const Root: React.FC = () => {
           <Route path="/requestForm/signup" element={<SignupForm />} />
           <Route path="/requestForm/requests" element={<RequestPage />} />
           <Route path="/requestForm/user/:id" element={<User />} />
-          {/* <Route path="/requestForm/semat/login" element={<LoginCapInput />} /> */}
-          {/* <Route
+          <Route path="/requestForm/semat/login" element={<LoginCapInput />} />
+          <Route path="/requestForm/semat/table" element={<TableComponent />} />
+          <Route
             path="/requestForm/semat/confirmation"
             element={<ConfirmCode />}
-          /> */}
+          />
         </Routes>
       </UserProvider>
     </Router>

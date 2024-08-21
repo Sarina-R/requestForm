@@ -35,6 +35,31 @@ textarea,
 .link {
   padding-bottom: 0.7rem !important;
 }
+.table {
+  direction: rtl;
+  padding: 0 15%;
+}
+.selects {
+  padding: 0 15%;
+  margin: 0 !important;
+  .col-12 {
+    // padding: 0 !important;
+    padding-left: 0.5rem;
+  }
+}
+
+.icon {
+  color: rgba(84, 191, 248, 0.753);
+  transition: 0.2s;
+  position: relative;
+  top: -2.1rem;
+  right: -94%;
+  background-color: white;
+  &:hover {
+    cursor: pointer;
+    color: lighten($color: rgba(84, 191, 248, 0.479), $amount: 0);
+  }
+}
 
 .custom-btn {
   button {
@@ -47,6 +72,22 @@ textarea,
     transition: box-shadow 0.3s ease-in-out;
     &:hover {
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .table {
+    overflow: auto;
+    display: inline-block;
+    padding: 3%;
+    .table-responsive {
+      overflow: scroll;
+    }
+
+    th,
+    td {
+      white-space: nowrap;
     }
   }
 }

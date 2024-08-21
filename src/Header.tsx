@@ -1,20 +1,20 @@
-// import { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Container, Nav, Navbar, Offcanvas } from "react-bootstrap";
 import { FaHamburger } from "react-icons/fa";
 import { Link } from "react-router-dom";
-// import Logout from "./Semat/Logout";
-// import Cookies from "universal-cookie";
+import Logout from "./Semat/Logout";
+import Cookies from "universal-cookie";
 
-// const cookies = new Cookies();
+const cookies = new Cookies();
 
 function Header() {
-  // const [modal, setModal] = useState<boolean>(false);
-  // const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+  const [modal, setModal] = useState<boolean>(false);
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
 
-  // useEffect(() => {
-  //   const token = cookies.get("token");
-  //   setIsLoggedIn(!!token); // Set isLoggedIn to true if token exists
-  // }, []);
+  useEffect(() => {
+    const token = cookies.get("token");
+    setIsLoggedIn(!!token); // Set isLoggedIn to true if token exists
+  }, []);
 
   return (
     <>
@@ -55,8 +55,11 @@ function Header() {
                       <a className="text-gray">Request Management</a>
                     </div>
                   </Link>
+                  <Link to="/requestForm/semat/table">
+                    <a>Table</a>
+                  </Link>
 
-                  {/* {modal && <Logout modal={modal} setModal={setModal} />}
+                  {modal && <Logout modal={modal} setModal={setModal} />}
                   {isLoggedIn ? (
                     <div className="link">
                       <button className="btn" onClick={() => setModal(true)}>
@@ -67,7 +70,7 @@ function Header() {
                     <Link to="/requestForm/semat/login">
                       <button className="btn">Login</button>
                     </Link>
-                  )} */}
+                  )}
                 </Nav>
               </Offcanvas.Body>
             </Navbar.Offcanvas>
@@ -92,8 +95,11 @@ function Header() {
             <Link to="/requestForm/requests">
               <a>Request Management</a>
             </Link>
+            <Link to="/requestForm/semat/table">
+              <a>Table</a>
+            </Link>
 
-            {/* {modal && <Logout modal={modal} setModal={setModal} />}
+            {modal && <Logout modal={modal} setModal={setModal} />}
             {isLoggedIn ? (
               <div className="link">
                 <button className="btn" onClick={() => setModal(true)}>
@@ -104,7 +110,7 @@ function Header() {
               <Link to="/requestForm/semat/login">
                 <button className="btn">Login</button>
               </Link>
-            )} */}
+            )}
           </Nav>
         </Navbar.Collapse>
       </Navbar>
