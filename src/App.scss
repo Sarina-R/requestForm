@@ -76,6 +76,19 @@ textarea,
   }
 }
 
+.addOrgan {
+  max-width: 45rem !important;
+  textarea,
+  #formRequestTitle.form-control,
+  .css-13cymwt-control {
+    border: rgba(128, 128, 128, 0.258) solid 2px !important;
+  }
+  // .form-outline {
+  //   // border: rgba(84, 191, 248, 0.23) solid 2px !important;
+  //   // border-radius: 5px;
+  // }
+}
+
 @media only screen and (max-width: 750px) {
   .table {
     overflow: auto;
