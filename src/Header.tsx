@@ -56,7 +56,10 @@ function Header() {
                     </div>
                   </Link>
                   <Link to="/requestForm/semat/table">
-                    <a>Table</a>
+                    <a className="text-gray">Table</a>
+                  </Link>
+                  <Link to="requestForm/semat/addOrgan">
+                    <a className="text-gray">Add Organ</a>
                   </Link>
 
                   {modal && <Logout modal={modal} setModal={setModal} />}
@@ -96,7 +99,10 @@ function Header() {
               <a>Request Management</a>
             </Link>
             <Link to="/requestForm/semat/table">
-              <a>Table</a>
+              <a className="text-gray">Table</a>
+            </Link>
+            <Link to="requestForm/semat/addOrgan">
+              <a className="text-gray">Add Organ</a>
             </Link>
 
             {modal && <Logout modal={modal} setModal={setModal} />}

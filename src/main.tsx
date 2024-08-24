@@ -14,6 +14,7 @@ import UserProvider from "./context/UserProvider";
 import LoginCapInput from "./Semat/LoginCapInput";
 import ConfirmCode from "./Semat/ConfirmCode";
 import TableComponent from "./Semat/table/Table";
+import AddOrgan from "./Semat/addOrgan/AddOrgan";
 
 const Root: React.FC = () => {
   return (
@@ -28,6 +29,7 @@ const Root: React.FC = () => {
           <Route path="/requestForm/user/:id" element={<User />} />
           <Route path="/requestForm/semat/login" element={<LoginCapInput />} />
           <Route path="/requestForm/semat/table" element={<TableComponent />} />
+          <Route path="requestForm/semat/addOrgan" element={<AddOrgan />} />
           <Route
             path="/requestForm/semat/confirmation"
             element={<ConfirmCode />}
