@@ -60,7 +60,7 @@ const SignupForm = () => {
       // Add the new user to the state
       setUsers([...users, newUser]);
       // send the new user data to the server
-      await axios.post("/users.json", newUser);
+      await axios.post("users.json", newUser);
       navigate(`/requestForm/user/${newUser.id}`);
     } catch (error) {
       console.error("Error creating user:", error);

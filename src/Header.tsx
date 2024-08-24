@@ -50,7 +50,7 @@ function Header() {
                       <a className="text-gray">Profile</a>
                     </div>
                   </Link>
-                  <Link to="/requestForm/requests">
+                  {/* <Link to="/requestForm/requests">
                     <div className="link">
                       <a className="text-gray">Request Management</a>
                     </div>
@@ -73,7 +73,7 @@ function Header() {
                     <Link to="/requestForm/semat/login">
                       <button className="btn">Login</button>
                     </Link>
-                  )}
+                  )} */}
                 </Nav>
               </Offcanvas.Body>
             </Navbar.Offcanvas>
@@ -98,7 +98,7 @@ function Header() {
             <Link to="/requestForm/requests">
               <a>Request Management</a>
             </Link>
-            <Link to="/requestForm/semat/table">
+            {/* <Link to="/requestForm/semat/table">
               <a className="text-gray">Table</a>
             </Link>
             <Link to="requestForm/semat/addOrgan">
@@ -116,7 +116,7 @@ function Header() {
               <Link to="/requestForm/semat/login">
                 <button className="btn">Login</button>
               </Link>
-            )}
+            )} */}
           </Nav>
         </Navbar.Collapse>
       </Navbar>

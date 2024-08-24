@@ -16,7 +16,7 @@ const User: React.FC = () => {
   return (
     <>
       <Header />
-      <Container className="p-4 card">
+      <Container className="p-4 mt-5 card">
         <h1>
           {user.name} {user.lastName}
         </h1>

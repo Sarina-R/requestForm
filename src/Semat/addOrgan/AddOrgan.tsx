@@ -1,6 +1,4 @@
-import { MDBInput } from "mdb-react-ui-kit";
 import Header from "../../Header";
-import { Button, Row, Form } from "react-bootstrap";
 import { useState } from "react";
 import Information from "./Information";
 import Status from "./Status";
